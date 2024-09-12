@@ -28,7 +28,7 @@
     </style>
 </head>
 <body>
-    <h1>スタンプラリー21</h1>
+    <h1>スタンプラリー22</h1>
     <button onclick="location.href='camera.html'">カメラを起動</button>
     <button onclick="resetcookies()">リセット</button>
     <div class="grid-container">
@@ -62,17 +62,12 @@
             //console.log(document.cookie);
             value = document.cookie.split("=");
             value = value[1]
-            console.log(value);
-            if(value % 2 == 0) document.getElementById("masu0").style.backgroundColor = 'red';
-            if(value % 3 == 0) document.getElementById("masu1").style.backgroundColor = 'red';
-
-            // const array = document.cookie.split('; ');
-            
-            // array.forEach(function(value) {
-            //     const content = value.split('=');
-            //     console.log(content[1]); // valueを取得
-            //     if(content[1] % 2 == 0) document.getElementById(`masu${num}`).style.backgroundColor = 'red';
-            // });
+            console.log(document.cookie);
+            value = document.cookie.split("=");
+            value = value[1]
+            for (let i = 0; i <= 8; i++) {
+                if(value % prime_num[i] == 0) document.getElementById(`masu${i}`).style.backgroundColor = 'red';
+            }
         };
 
         // ページ離脱の際に初期化フラグを立て直します
