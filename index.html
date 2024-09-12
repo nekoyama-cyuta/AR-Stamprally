@@ -44,18 +44,38 @@
     </div>
 
     <script>
-        window.onload = function() //ロード時に実行
-        {
-            //cookieを配列化
-            const array = document.cookie.split(';');
+        // 初期化フラグが立っている場合にのみ実行します
+        if (!isNeedInit) {
+            return;
+        }
+        // 初期化フラグを折ります
+        isNeedInit = false;
+
+        /* ページの初期化処理をここに書きます */
+        //cookieを配列化
+        const array = document.cookie.split(';');
             num = 0;
             array.forEach(element => {
                 console.log(element);
-                //document.getElementById(`masu${num}`).style.backgroundColor = 'blue';//リセット
                 if(element == `masu${num}=1`)document.getElementById(`masu${num}`).style.backgroundColor = 'red';
                 num++;
             });
-        }
+        };
+
+        // ページ離脱の際に初期化フラグを立て直します
+        window.addEventListener('pagehide', () => {
+        isNeedInit = true;
+        });
+
+        // ページ再訪問時に初期化を求めます
+        window.addEventListener('pageshow', initPage);
+
+        // 最初の初期化を実行します
+        // 必要に応じてDOMContentLoaded等と連携してください
+        initPage();
+            
+
+
         //クッキーリセット
         function resetcookies()
         {
