@@ -62,7 +62,9 @@
             const array = document.cookie.split('; ');
             num = 0;
             array.forEach(element => {
-                console.log(array);
+                //console.log(array);
+                const content = value.split('=');
+                console.log(content[1]); // valueを取得
                 if(element == `masu${num}=1`)document.getElementById(`masu${num}`).style.backgroundColor = 'red';
                 num++;
             });
