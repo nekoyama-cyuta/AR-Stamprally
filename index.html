@@ -44,16 +44,20 @@
     </div>
 
     <script>
-        // 初期化フラグが立っている場合にのみ実行します
-        if (!isNeedInit) {
-            return;
-        }
-        // 初期化フラグを折ります
-        isNeedInit = false;
+        // 初期化を求めるフラグを立てます
+        let isNeedInit = true;
 
-        /* ページの初期化処理をここに書きます */
-        //cookieを配列化
-        const array = document.cookie.split(';');
+        function initPage() {
+            // 初期化フラグが立っている場合にのみ実行します
+            if (!isNeedInit) {
+                return;
+            }
+            // 初期化フラグを折ります
+            isNeedInit = false;
+
+            /* ページの初期化処理をここに書きます */
+            //cookieを配列化
+            const array = document.cookie.split(';');
             num = 0;
             array.forEach(element => {
                 console.log(element);
