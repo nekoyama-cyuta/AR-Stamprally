@@ -22,12 +22,12 @@
     <div id="message">マーカーが認識されました！</div>
     <a-scene embedded arjs>
         <!-- マーカー1 -->
-        <a-marker preset="hiro" id="markerHiro">
+        <a-marker preset="hiro" id="marker0">
             <a-box position="0 0.5 0" material="color: red;"></a-box>
         </a-marker>
         
         <!-- マーカー2 -->
-        <a-marker preset="kanji" id="markerKanji">
+        <a-marker preset="kanji" id="marker1">
             <a-sphere position="0 0.5 0" radius="0.5" material="color: blue;"></a-sphere>
         </a-marker>
         
@@ -35,15 +35,17 @@
     </a-scene>
 
     <script>
+        //複数マーカー
         const markers = document.querySelectorAll('a-marker');
         const message = document.querySelector('#message');
 
+        //マーカー認識、クッキー保存
         markers.forEach(marker => {
             marker.addEventListener('markerFound', () => {
                 message.innerText = `${marker.id} が認識されました！`;
                 message.style.display = 'block';
-                if(marker.id == "markerHiro") {console.log("hiro"); document.cookie = "hiro=1";}
-                if(marker.id == "markerKanji") {console.log("kanji"); document.cookie = "kanji=1";}
+                console.log(marker.id);
+                document.cookie = `masu${marker.id}=1`;
             });
 
             marker.addEventListener('markerLost', () => {
@@ -53,4 +55,3 @@
     </script>
 </body>
 </html>
-
