@@ -35,6 +35,7 @@
     </a-scene>
 
     <script>
+        const prime_num = [2,3,5,7,11,13,17,19,23];
         //複数マーカー
         const markers = document.querySelectorAll('a-marker');
         const message = document.querySelector('#message');
@@ -45,7 +46,7 @@
                 message.innerText = `${marker.id} が認識されました！`;
                 message.style.display = 'block';
                 console.log(marker.id);
-                document.cookie = `masu${marker.id}=1`;
+                document.cookie = `score=${prime_num[marker.id]}`;
             });
 
             marker.addEventListener('markerLost', () => {
@@ -55,3 +56,4 @@
     </script>
 </body>
 </html>
+
