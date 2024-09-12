@@ -61,16 +61,12 @@
             //cookieを配列化
             const array = document.cookie.split('; ');
             
+            const array = document.cookie.split('; ');
+            
             array.forEach(function(value) {
-            const content = value.split('=');
-            console.log(content[1]); // valueを取得
-            })
-
-            num = 0;
-            array.forEach(element => {
-                //console.log(array);
-                if(element == `masu${num}=1`)document.getElementById(`masu${num}`).style.backgroundColor = 'red';
-                num++;
+                const content = value.split('=');
+                console.log(content[1]); // valueを取得
+                if(content[1] == 1) document.getElementById(`masu${num}`).style.backgroundColor = 'red';
             });
         };
 
