@@ -46,10 +46,10 @@
     <script>
         //cookieを配列化
         const array = document.cookie.split(';');
-        num = 1;
+        num = 0;
         array.forEach(element => {
             console.log(element);
-            document.getElementById(`masu${num}`).style.backgroundColor = 'red';
+            if(element == `masu${num}=1`)document.getElementById(`masu${num}`).style.backgroundColor = 'red';
             num++;
         });
         //クッキーリセット
