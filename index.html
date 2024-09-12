@@ -28,7 +28,7 @@
     </style>
 </head>
 <body>
-    <h1>スタンプラリー20</h1>
+    <h1>スタンプラリー21</h1>
     <button onclick="location.href='camera.html'">カメラを起動</button>
     <button onclick="resetcookies()">リセット</button>
     <div class="grid-container">
@@ -59,9 +59,10 @@
 
             /* ページの初期化処理をここに書きます */
             //cookieを配列化
-            console.log(document.cookie);
+            //console.log(document.cookie);
             value = document.cookie.split("=");
             value = value[1]
+            console.log(value);
             if(value % 2 == 0) document.getElementById("masu0").style.backgroundColor = 'red';
             if(value % 3 == 0) document.getElementById("masu1").style.backgroundColor = 'red';
 
