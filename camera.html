@@ -45,8 +45,9 @@
             marker.addEventListener('markerFound', () => {
                 message.innerText = `${marker.id} が認識されました！`;
                 message.style.display = 'block';
-                console.log(marker.id);
-                document.cookie = `score=${prime_num[marker.id]}`;
+
+                score = document.cookie.split("=");
+                document.cookie = `score=${score[1]*prime_num[marker.id]}`;
             });
 
             marker.addEventListener('markerLost', () => {
