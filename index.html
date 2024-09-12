@@ -32,7 +32,7 @@
     <button onclick="location.href='sample.html'">カメラを起動</button>
     <button onclick="resetcookies()">リセット</button>
     <div class="grid-container">
-        <div class="grid-item" onclick="stamp(this)">1</div>
+        <div class="grid-item" id="masu1">1</div>
         <div class="grid-item" onclick="stamp(this)">2</div>
         <div class="grid-item" onclick="stamp(this)">3</div>
         <div class="grid-item" onclick="stamp(this)">4</div>
@@ -46,11 +46,12 @@
     <script>
         function resetcookies()
         {
-            document.cookie = "hiro=none";
-            document.cookie = "kanji=none";
+            document.cookie = "hiro=0";
+            document.cookie = "kanji=0";
         }
         function stamp(element) {
-            element.classList.toggle('stamped');
+            // element.classList.toggle('stamped');
+            document.getElementById('masu1').style.backgroundColor = 'red';
         }
     </script>
 </body>
