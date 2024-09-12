@@ -29,7 +29,8 @@
 </head>
 <body>
     <h1>スタンプラリー</h1>
-    <button onclick="location.href='camera.html'">カメラを起動</button>
+    <button onclick="location.href='sample.html'">カメラを起動</button>
+    <button onclick="resetcookies()">リセット</button>
     <div class="grid-container">
         <div class="grid-item" onclick="stamp(this)">1</div>
         <div class="grid-item" onclick="stamp(this)">2</div>
@@ -43,11 +44,11 @@
     </div>
 
     <script>
-        score = 0;
-        document.cookie = "user=Tarou; max-age=20";// key=value
-        document.cookie = '${parseInt(n.toString(2))}';
-        console.log(document.cookie); // user=Tarou
-
+        function resetcookies()
+        {
+            document.cookie = "hiro=none";
+            document.cookie = "kanji=none";
+        }
         function stamp(element) {
             element.classList.toggle('stamped');
         }
