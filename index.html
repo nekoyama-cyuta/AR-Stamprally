@@ -62,7 +62,7 @@
             const array = document.cookie.split(';');
             num = 0;
             array.forEach(element => {
-                console.log(element);
+                console.log(array);
                 if(element == `masu${num}=1`)document.getElementById(`masu${num}`).style.backgroundColor = 'red';
                 num++;
             });
