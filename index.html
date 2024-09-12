@@ -33,21 +33,24 @@
     <button onclick="resetcookies()">リセット</button>
     <div class="grid-container">
         <div class="grid-item" id="masu1">1</div>
-        <div class="grid-item" onclick="stamp(this)">2</div>
-        <div class="grid-item" onclick="stamp(this)">3</div>
-        <div class="grid-item" onclick="stamp(this)">4</div>
-        <div class="grid-item" onclick="stamp(this)">5</div>
-        <div class="grid-item" onclick="stamp(this)">6</div>
-        <div class="grid-item" onclick="stamp(this)">7</div>
-        <div class="grid-item" onclick="stamp(this)">8</div>
-        <div class="grid-item" onclick="stamp(this)">9</div>
+        <div class="grid-item" id="masu2">2</div>
+        <div class="grid-item" id="masu3">3</div>
+        <div class="grid-item" id="masu4">4</div>
+        <div class="grid-item" id="masu5">5</div>
+        <div class="grid-item" id="masu6">6</div>
+        <div class="grid-item" id="masu7">7</div>
+        <div class="grid-item" id="masu8">8</div>
+        <div class="grid-item" id="masu9">9</div>
     </div>
 
     <script>
         //cookieを配列化
         const array = document.cookie.split(';');
+        num = 1;
         array.forEach(element => {
             console.log(element);
+            document.getElementById(`masu${num}`).style.backgroundColor = 'red';
+            num++;
         });
         //クッキーリセット
         function resetcookies()
