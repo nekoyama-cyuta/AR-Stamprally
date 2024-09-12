@@ -28,7 +28,7 @@
     </style>
 </head>
 <body>
-    <h1>スタンプラリー11</h1>
+    <h1>スタンプラリー</h1>
     <button onclick="location.href='camera.html'">カメラを起動</button>
     <button onclick="resetcookies()">リセット</button>
     <div class="grid-container">
@@ -59,15 +59,16 @@
 
             /* ページの初期化処理をここに書きます */
             //cookieを配列化
-            const array = document.cookie.split(';');
+            console.log(document.cookie);
+            if(document.cookie % 2 == 0) document.getElementById("masu0").style.backgroundColor = 'red';
 
-            num=0;
-            array.forEach(function(value) {
-                const content = value.split('=');
-                console.log(content[1]); // valueを取得
-                if(content[1] == 1) document.getElementById(`masu${num}`).style.backgroundColor = 'red';
-                num++;
-            });
+            // const array = document.cookie.split('; ');
+            
+            // array.forEach(function(value) {
+            //     const content = value.split('=');
+            //     console.log(content[1]); // valueを取得
+            //     if(content[1] % 2 == 0) document.getElementById(`masu${num}`).style.backgroundColor = 'red';
+            // });
         };
 
         // ページ離脱の際に初期化フラグを立て直します
