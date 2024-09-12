@@ -45,7 +45,7 @@
 
     <script>
         //cookieを配列化
-        const array = cookies.split(';');
+        const array = document.cookie.split(';');
         array.forEach(element => {
             console.log(element);
         });
