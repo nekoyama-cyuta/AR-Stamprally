@@ -60,7 +60,10 @@
             /* ページの初期化処理をここに書きます */
             //cookieを配列化
             console.log(document.cookie);
-            if(document.cookie % 2 == 0) document.getElementById("masu0").style.backgroundColor = 'red';
+            value = document.cookie.split("=");
+            value = value[1]
+            if(value % 2 == 0) document.getElementById("masu0").style.backgroundColor = 'red';
+            if(value % 3 == 0) document.getElementById("masu1").style.backgroundColor = 'red';
 
             // const array = document.cookie.split('; ');
             
