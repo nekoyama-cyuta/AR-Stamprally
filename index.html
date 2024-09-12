@@ -59,12 +59,14 @@
 
             /* ページの初期化処理をここに書きます */
             //cookieを配列化
-            const array = document.cookie.split('; ');
-            
+            const array = document.cookie.split(';');
+
+            num=0;
             array.forEach(function(value) {
                 const content = value.split('=');
                 console.log(content[1]); // valueを取得
                 if(content[1] == 1) document.getElementById(`masu${num}`).style.backgroundColor = 'red';
+                num++;
             });
         };
 
