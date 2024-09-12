@@ -42,6 +42,8 @@
             marker.addEventListener('markerFound', () => {
                 message.innerText = `${marker.id} が認識されました！`;
                 message.style.display = 'block';
+                if(marker.id == "markerHiro") {console.log("hiro"); document.cookie = "hiro=1";}
+                if(marker.id == "markerKanji") {console.log("kanji"); document.cookie = "kanji=1";}
             });
 
             marker.addEventListener('markerLost', () => {
@@ -51,3 +53,4 @@
     </script>
 </body>
 </html>
+
