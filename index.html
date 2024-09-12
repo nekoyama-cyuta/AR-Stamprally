@@ -44,14 +44,20 @@
     </div>
 
     <script>
+        //cookieを配列化
+        const array = cookies.split(';');
+        array.forEach(element => {
+            console.log(element);
+        });
+        //クッキーリセット
         function resetcookies()
         {
             document.cookie = "hiro=0";
             document.cookie = "kanji=0";
         }
         function stamp(element) {
-            // element.classList.toggle('stamped');
-            document.getElementById('masu1').style.backgroundColor = 'red';
+            //element.classList.toggle('stamped');
+            //document.getElementById('masu1').style.backgroundColor = 'red';  
         }
     </script>
 </body>
