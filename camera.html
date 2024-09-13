@@ -28,8 +28,15 @@
         
         <!-- マーカー2 -->
         <a-marker preset="kanji" id="1">
-            <a-sphere position="0 0.5 0" radius="0.5" material="color: blue;"></a-sphere>
+            <a-entity
+              gltf-model=”url(/drone/newドローン.glb)” 
+              position="0 0 0"
+              rotation="-45 0 0"
+              scale="0.5 0.5 0.5">
+        </a-entity>
+            drone/newドローン.glb
         </a-marker>
+        
         
         <a-entity camera></a-entity>
     </a-scene>
