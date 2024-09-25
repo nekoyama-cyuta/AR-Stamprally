@@ -21,6 +21,8 @@
 <body style="margin: 0; overflow: hidden;">
     <div id="message">マーカーが認識されました！</div>
     <a-scene embedded arjs>
+        <!-- 単色背景の設定 -->
+          <a-sky color="#FF0000"></a-sky> <!-- ここで色を指定します。例: 赤色 -->
         <!-- マーカー1 -->
         <a-marker preset="hiro" id="0">
             <a-box position="0 0.5 0" material="color: red;"></a-box>
