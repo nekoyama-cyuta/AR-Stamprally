@@ -74,6 +74,50 @@
     </div>
 
     <script>
+
+
+
+
+
+        
+        //ーーーーーーーーーー読み込みーーーーーーーーーーーー
+
+        // 初期化を求めるフラグを立てます
+        let isNeedInit = true;
+
+        const prime_num = [2,3,5,7,11,13,17,19,23];
+        value = 11;
+        function initPage() {
+            // 初期化フラグが立っている場合にのみ実行します
+            if (!isNeedInit) {
+                return;
+            }
+            // 初期化フラグを折ります
+            isNeedInit = false;
+
+            /* ページの初期化処理をここに書きます */
+
+            console.log(document.cookie);
+            value = document.cookie.split("=");
+            value = value[1]
+            for (let i = 0; i <= 8; i++) {
+                if(value % prime_num[i] == 0) document.getElementById(`masu${i}`).style.backgroundColor = 'red';
+            }
+        };
+
+        // ページ離脱の際に初期化フラグを立て直します
+        window.addEventListener('pagehide', () => {
+        isNeedInit = true;
+        });
+
+        // ページ再訪問時に初期化を求めます
+        window.addEventListener('pageshow', initPage);
+
+        // 最初の初期化を実行します
+        // 必要に応じてDOMContentLoaded等と連携してください
+        initPage();
+
+        //ビンゴ判定
         const cells = document.querySelectorAll('.grid-item');
         const winningCombinations = [
           [0, 1, 2], // 横のライン
@@ -107,48 +151,7 @@
             }
           });
         });
-
-
-
-
-
         
-        //ーーーーーーーーーー読み込みーーーーーーーーーーーー
-
-        // 初期化を求めるフラグを立てます
-        let isNeedInit = true;
-
-        function initPage() {
-            // 初期化フラグが立っている場合にのみ実行します
-            if (!isNeedInit) {
-                return;
-            }
-            // 初期化フラグを折ります
-            isNeedInit = false;
-
-            /* ページの初期化処理をここに書きます */
-            const prime_num = [2,3,5,7,11,13,17,19,23];
-
-            console.log(document.cookie);
-            value = document.cookie.split("=");
-            value = value[1]
-            for (let i = 0; i <= 8; i++) {
-                if(value % prime_num[i] == 0) document.getElementById(`masu${i}`).style.backgroundColor = 'red';
-            }
-        };
-
-        // ページ離脱の際に初期化フラグを立て直します
-        window.addEventListener('pagehide', () => {
-        isNeedInit = true;
-        });
-
-        // ページ再訪問時に初期化を求めます
-        window.addEventListener('pageshow', initPage);
-
-        // 最初の初期化を実行します
-        // 必要に応じてDOMContentLoaded等と連携してください
-        initPage();
-
         //ーーーーーーーーーー読み込みーーーーーーーーーーーー
         
 
