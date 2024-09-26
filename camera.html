@@ -22,10 +22,15 @@
     <div id="message">マーカーが認識されました！</div>
     <a-scene embedded arjs>
         <!-- 単色背景の設定 -->
-          <a-sky color="#FF0000"></a-sky> <!-- ここで色を指定します。例: 赤色 -->
+          <!--<a-sky color="#FF0000"></a-sky> <!-- ここで色を指定します。例: 赤色 -->-->
         <!-- マーカー1 -->
-        <a-marker preset="hiro" id="0">
-            <a-box position="0 0.5 0" material="color: red;"></a-box>
+        <a-marker type='pattern' url='4Dシアター/pattern-AR-stamprally-4Dシアター.patt' id="1">
+            <a-entity
+              gltf-model=”url(4Dシアター/AR-stamprally-4Dシアター.glb)” 
+              position="0 0 0"
+              rotation="0 0 0"
+              scale="0.1 0.1 0.1">
+            </a-entity>
         </a-marker>
         
         <!-- マーカー2 -->
@@ -37,6 +42,8 @@
               scale="0.1 0.1 0.1">
             </a-entity>
         </a-marker>
+
+        
         
         
         <a-entity camera></a-entity>
