@@ -89,9 +89,9 @@
         function checkBingo() {
           for (const combination of winningCombinations) {
             const [a, b, c] = combination;
-            if (cells[a].classList.contains('marked') &&
-                cells[b].classList.contains('marked') &&
-                cells[c].classList.contains('marked')) {
+            if (value % prime_num[a] == 0 &&
+                value % prime_num[b] == 0 &&
+                value % prime_num[c] == 0) {
               return true;
             }
           }
