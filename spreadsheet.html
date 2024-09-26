@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>フォーム</title>
+  </head>
+  <body>
+    <form id="myForm">
+      <label for="name">名前:</label><br>
+      <input type="text" id="name" name="name"><br>
+      <label for="email">メールアドレス:</label><br>
+      <input type="email" id="email" name="email"><br><br>
+      <input type="button" value="送信" onclick="submitForm()">
+    </form> 
+    <script>
+      function submitForm() {
+        google.script.run.addData(document.getElementById("myForm"));
+      }
+    </script>
+  </body>
+</html>
