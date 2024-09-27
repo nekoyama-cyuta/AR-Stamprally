@@ -1,4 +1,4 @@
-                                                                                                                                                                                                                      <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -12,27 +12,35 @@
             color:#cccccc;
         }
         .title{
+            font-family: monospace;
             color: #b80060;
-            font-size: 50px;
+            text-align: center;
+            margin: 0 calc(50% - 50vw);
+            width: 100vw;
         }
         .grid-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
             gap: 10px;
-            max-width: 300px;
-            margin: auto;
+            width: 320px;
+            height: 320px;
+            margin: 0 auto;
         }
         .grid-item {
+            z-index: 0;
             width: 100px;
             height: 100px;
             border: 2px solid #ff8a05;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 10px;
             cursor: pointer;
             border-radius: 10px;
             color: #b80060;
+            font-weight: bold;
+            white-space:inherit;
         }
         .stamped {
             background-color: #ffeb3b;
@@ -41,17 +49,28 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 350px
         }
         .cambutton{
-            border-radius: 100px;
+            z-index: 0;
+            width: 300px;
+            height: 300px;
+            border-radius: 300px;
+            border-color: #ff8a05;
             display: block;
             box-sizing: border-box;
-            background: #6fa1ff;
-            color: #FFF;
+            background: pink;
+            color: #b80060;
             text-decoration: none;
             text-align: center;
             margin: 10px 0;
+            font-size: 30px;
+
+            transition: .2s cubic-bezier(0.45, 0, 0.55, 1);
+        }
+        .cambutton:hover {
+            background: #ffffff00;
+            color: #ff701e;
         }
 
 
@@ -75,6 +94,36 @@
         top: 0;
         left: 0;
         }
+
+        .bingo1{
+            z-index: 1;
+            border-radius: 100px;
+            border-width: 400px;
+            background-color: #b80060;
+            position:unset;
+            width: 400px;
+            height: 20px;
+            left: 0;
+            right: -12px;
+            top: -280px;
+            bottom : 0;
+            margin:  auto;
+        }
+        .ignite{
+            animation-delay:1s;
+            animation:bingo .2s ease-in;
+            animation-fill-mode:forwards;
+        }
+        @keyframes bingo {
+
+            0% {
+                width: 0;
+                }
+            100% {
+                width: 400px;
+                }
+            }
+
     </style>
 </head>
 <body>
@@ -86,32 +135,30 @@
         </div>
       </section>-->
 
-    <div style="text-align: center;">
+    <div class="title">
         <h1>ARスタンプラリー</h1>
     </div>
+    <button onclick="resetcookies()">リセット</button>
+    <div class="grid-container">
+        <div class="grid-item" id="masu0">4Dシアター</div>
+        <div class="grid-item" id="masu1">ARシューティング</div>
+        <div class="grid-item" id="masu2">CAD講座</div>
+        <div class="grid-item" id="masu3">Dくん大作戦</div>
+        <div class="grid-item" id="masu4">FREE!</div>
+        <div class="grid-item" id="masu5">LEGO製作体験</div>
+        <div class="grid-item" id="masu6">Unity競争</div>
+        <div class="grid-item" id="masu7">ドローン操縦体験</div>
+        <div class="grid-item" id="masu8">ロボ技展示</div>
+    </div>
+
     <div class="center">
       <button onclick="location.href='camera.html'" class=cambutton>マーカーを読み取る</button>
     </div>
-   <div style="text-align: center;">
-  <button>ボタン</button>
-</div>
-    <button onclick="resetcookies()">リセット</button>
-    <div class="grid-container">
-        <div class="grid-item" id="masu0">0</div>
-        <div class="grid-item" id="masu1">1</div>
-        <div class="grid-item" id="masu2">2</div>
-        <div class="grid-item" id="masu3">3</div>
-        <div class="grid-item" id="masu4">FREE!</div>
-        <div class="grid-item" id="masu5">5</div>
-        <div class="grid-item" id="masu6">6</div>
-        <div class="grid-item" id="masu7">7</div>
-        <div class="grid-item" id="masu8">8</div>
-    </div>
-
+    
     <script>
-
-
-
+        
+        
+        
 
 
         
@@ -152,6 +199,11 @@
         // 必要に応じてDOMContentLoaded等と連携してください
         initPage();
 
+
+
+
+
+
         //ビンゴ判定
         const cells = document.querySelectorAll('.grid-item');
         const winningCombinations = [
@@ -165,21 +217,25 @@
           [2, 4, 6]
         ];
         
+        window.onload = function(){
+            checkBingo();
+        }
         function checkBingo() {
+            i = 0;
           for (const combination of winningCombinations) {
+            i++;
             const [a, b, c] = combination;
             if (value % prime_num[a] == 0 &&
                 value % prime_num[b] == 0 &&
                 value % prime_num[c] == 0) {
+                alert("ビンゴおめでとうございます！\n総合受付にてスマホ用オリジナル壁紙をお受け取りください。");
+                //bingos[i-1].classList.add("ignite");
               return true;
             }
           }
+              //bingo1.classList.add("ignite1");
           return false;
         }
-        
-        // マスをクリックしたときの処理
-        if (checkBingo()) {
-              alert('Bingo!');}
         
         
         //ーーーーーーーーーー読み込みーーーーーーーーーーーー
