@@ -37,6 +37,12 @@
         .stamped {
             background-color: #ffeb3b;
         }
+        .center{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
         .cambutton{
             border-radius: 100px;
             display: block;
@@ -45,10 +51,7 @@
             color: #FFF;
             text-decoration: none;
             text-align: center;
-            align: center;
             margin: 10px 0;
-            display: flex;
-            justify-content: center;
         }
 
 
@@ -86,7 +89,9 @@
     <div style="text-align: center;">
         <h1>ARスタンプラリー</h1>
     </div>
-    <button onclick="location.href='camera.html'" class=cambutton>マーカーを読み取る</button>
+    <div class="center">
+      <button onclick="location.href='camera.html'" class=cambutton>マーカーを読み取る</button>
+    </div>
    <div style="text-align: center;">
   <button>ボタン</button>
 </div>
