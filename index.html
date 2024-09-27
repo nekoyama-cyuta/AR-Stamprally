@@ -169,14 +169,16 @@
         }
         
         // マスをクリックしたときの処理
+        if (checkBingo()) {
+              alert('Bingo!');
         <!--cells.forEach(cell => {
           cell.addEventListener('click', () => {
-            cell.classList.add('marked');-->
+            cell.classList.add('marked');
             if (checkBingo()) {
               alert('Bingo!');
             }
           });
-        });
+        });-->
         
         //ーーーーーーーーーー読み込みーーーーーーーーーーーー
         
