@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
+    <title>AR.js 複数マーカー検知</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.7/aframe/build/aframe-ar.js"></script>
+    <style>
+        #message {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body style="margin: 0; overflow: hidden;">
+    <div id="message">マーカーが認識されました！</div>
+    <a-scene embedded arjs>
+        <!-- 単色背景の設定 -->
+          <!--<a-sky color="#FF0000"></a-sky> ここで色を指定します。例: 赤色 -->
+        <!-- マーカー0 -->
+        <a-marker type='pattern' url='4Dシアター/pattern-AR-stamprally-4Dシアター.patt' id="0">
+            <a-entity
+              gltf-model=”url(4Dシアター/AR-stamprally-4Dシアター.glb)” 
+              position="0 0 0"
+              rotation="0 180 0"
+              scale="0.1 0.1 0.1">
+            </a-entity>
+        </a-marker>
+
+        <!-- マーカー1 -->
+        <a-marker type='pattern' url='ARシューティング/pattern-AR-stamprally-ARシューティング.patt' id="1">
+            <a-entity
+              gltf-model=”url(ARシューティング/AR-stamprally-ARシューティング.glb)” 
+              position="0 0 0"
+              rotation="0 -90 0"
+              scale="0.1 0.1 0.1">
+            </a-entity>
+        </a-marker>
+        
+        <!-- マーカー2 -->
+        <a-marker type='pattern' url='CAD講座/pattern-AR-stamprally-CAD講座.patt' id="2">
+            <a-entity
+              gltf-model=”url(CAD講座/AR-stamprally-CAD講座.glb)” 
+              position="0 0 0"
+              rotation="0 0 0"
+              scale="0.02 0.02 0.02">
+            </a-entity>
+        </a-marker>
+        
+        <!-- マーカー3 -->
+        <a-marker type='pattern' url='pattern-VR.patt' id="2">
+        <!--<a-marker type='pattern' url='Dくん大作戦/pattern.patt' id="3">-->
+            <a-entity
+              gltf-model=”url(Dくん大作戦/D君完成系(new).glb)” 
+              position="0 0 0"
+              rotation="0 0 0"
+              scale="0.1 0.1 0.1">
+            </a-entity>
+        </a-marker>
+        
+        <!-- マーカー5 -->
+        <a-marker type='pattern' url='LEGO製作体験/pattern-AR-stamprally-LEGO制作体験.patt' id="5">
+            <a-entity
+              gltf-model=”url(LEGO製作体験/レゴ制作体験.glb)” 
+              position="0 0 0"
+              rotation="90 0 0"
+              scale="0.1 0.1 0.1">
+            </a-entity>
+        </a-marker>
+
+        <!-- マーカー6 -->
+        <a-marker type='pattern' url='pattern-unity.patt' id="6">
+            <a-entity
+              gltf-model=”url(Unity競争/AR-stamprally-Unity競争.glb)” 
+              position="0 0 0"
+              rotation="0 0 0"
+              scale="0.1 0.1 0.1">
+            </a-entity>
+        </a-marker>
+        
+        <!-- マーカー7 -->
+        <a-marker type='pattern' url='pattern-drone.patt' id="7">
+            <a-entity
+              gltf-model=”url(ドローン操縦体験/AR-stamprally-ドローン操縦体験.glb)” 
+              position="0 0 0"
+              rotation="0 0 0"
+              scale="0.1 0.1 0.1">
+            </a-entity>
+        </a-marker>
+        
+        <!-- マーカー8 -->
+        <a-marker type='pattern' url='ロボ技展示/pattern-AR-stamprally-ロボ技展示.patt' id="8">
+            <a-entity
+              gltf-model=”url(ロボ技展示/AR-stamprally-ロボ技展示.glb)” 
+              position="0 0 0"
+              rotation="0 0 1800"
+              scale="0.1 0.1 0.1">
+            </a-entity>
+        </a-marker>
+        
+        
+        
+        <a-entity camera></a-entity>
+
+        <a-assets>
+<!--imgを取り込むタグ-->
+        <!--<img id="sky" src="texture.jpg" />-->
+      </a-assets>
+<!--360°表示するためのタグ（radiusを変更で半径が変わります）-->
+      <!--<a-sky id="image-360" radius="10" src="#sky"> </a-sky>-->
+    </a-scene>
+
+    <script>
+        const prime_num = [2,3,5,7,11,13,17,19,23];
+        //複数マーカー
+        const markers = document.querySelectorAll('a-marker');
+        const message = document.querySelector('#message');
+        message.innerText = `ver.0.1`;
+
+        //マーカー認識、クッキー保存
+        markers.forEach(marker => {
+            marker.addEventListener('markerFound', () => {
+                message.innerText = `${marker.id} が認識されました！`;
+                message.style.display = 'block';
+
+                score = document.cookie.split("=");
+                document.cookie = `score=${score[1]*prime_num[marker.id]}`;
+            });
+
+            marker.addEventListener('markerLost', () => {
+                message.style.display = 'none';
+            });
+        });
+    </script>
+    <button onclick="location.href='camera.html'" class=cambutton>マーカーを読み取る</button>
+</body>
+</html>
