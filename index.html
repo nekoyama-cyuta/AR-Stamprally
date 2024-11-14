@@ -13,7 +13,7 @@
         }
         .title{
             font-family: monospace;
-            color: #b80060;
+            color: #b8005f;
             text-align: center;
             margin: 0 calc(50% - 50vw);
             width: 100vw;
@@ -24,7 +24,7 @@
             grid-template-rows: repeat(3, 1fr);
             gap: 10px;
             width: 320px;
-            height: 320px;
+            height: 100px;
             margin: 0 auto;
         }
         .grid-item {
@@ -110,10 +110,9 @@
             margin:  auto;
         }
         .dis{
-            font-size: 10px;
+            font-size: 20px;
+            transform: translate(-1%, 0%);
             color: #b80060;
-            font-weight: bold;
-            text-align: center;
         }
         .ignite{
             animation-delay:1s;
@@ -128,7 +127,64 @@
             100% {
                 width: 400px;
                 }
-            }
+        }
+
+
+        #popup {
+        display: none; /* label でコントロールするので input は非表示に */
+        }
+
+        .popup-open {
+        cursor: pointer; /* マウスオーバーでカーソルの形状を変えることで、クリックできる要素だとわかりやすいように */
+        filter: invert(70%) sepia(80%) saturate(2800%) hue-rotate(0deg) brightness(150%);
+        width: 100%;
+        }
+
+        .popup-overlay {
+        display: none; /* input にチェックが入るまでは非表示に */
+        }
+
+        #popup:checked ~ .popup-overlay {
+        display: block;
+        z-index: 99999;
+        background-color: #00000070;
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        }
+
+        .popup-window {
+        width: 90vw;
+        max-width: 560px;
+        padding: 20px;
+        background-color: #282042;
+        border-radius: 6px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
+
+        .popup-text {
+        margin: 0;
+        }
+
+        .popup-text:not(:last-of-type) {
+        margin-bottom: 1em
+        }
+
+        .popup-close {
+        cursor: pointer;
+        position: absolute;
+        top: -26px;
+        right: 0;
+        }
+
+        .trophy{
+            transform: translate(70%, 0%);
+        }
 
     </style>
 </head>
@@ -136,11 +192,11 @@
     <!--<section class="video-container">
         <video src="AR0001-0100.mp4" autoplay loop playsinline></video>
         <div class="callout">
-          <h1>見出し</h1>
-          <div>コンテンツ</div>
+            <h1>見出し</h1>
+            <div>コンテンツ</div>
         </div>
-      </section>-->
-
+    </section>-->
+    
     <div class="title">
         <h1>ARスタンプラリー</h1>
     </div>
@@ -150,23 +206,23 @@
         <div class="grid-item" id="masu1">ドローン操縦体験</div>
         <div class="grid-item" id="masu2">ロボ技展示</div>
     </div>
-
+    
     <div class="center">
-      <button onclick="location.href='camera.html'" class=cambutton>マーカーを読み取る</button>
+        <button onclick="location.href='camera.html'" class=cambutton>マーカーを読み取る</button>
     </div>
     
     <script>
         
         
         
-
-
+        
+        
         
         //ーーーーーーーーーー読み込みーーーーーーーーーーーー
-
+        
         // 初期化を求めるフラグを立てます
         let isNeedInit = true;
-
+        
         const prime_num = [2,3,5,7,11,13,17,19,23];
         value = 11;
         function initPage() {
@@ -176,9 +232,9 @@
             }
             // 初期化フラグを折ります
             isNeedInit = false;
-
+            
             /* ページの初期化処理をここに書きます */
-
+            
             console.log(document.cookie);
             value = document.cookie.split("=");
             value = value[1]
@@ -186,24 +242,24 @@
                 if(value % prime_num[i] == 0) document.getElementById(`masu${i}`).style.backgroundColor = 'pink';
             }
         };
-
+        
         // ページ離脱の際に初期化フラグを立て直します
         window.addEventListener('pagehide', () => {
-        isNeedInit = true;
+            isNeedInit = true;
         });
-
+        
         // ページ再訪問時に初期化を求めます
         window.addEventListener('pageshow', initPage);
-
+        
         // 最初の初期化を実行します
         // 必要に応じてDOMContentLoaded等と連携してください
         initPage();
-
-
-
-
-
-
+        
+        
+        
+        
+        
+        
         //ビンゴ判定
         
         window.onload = function(){
@@ -211,13 +267,13 @@
         }
         function checkBingo() {
             if (value % prime_num[0] == 0 ||
-                value % prime_num[1] == 0 ||
-                value % prime_num[2] == 0) {
+            value % prime_num[1] == 0 ||
+            value % prime_num[2] == 0) {
                 alert("ビンゴおめでとうございます！\n総合受付にてスマホ用オリジナル壁紙をお受け取りください。");
                 //bingos[i-1].classList.add("ignite");
-              return true;
+                return true;
             }
-          }
+        }
         
         
         //ーーーーーーーーーー読み込みーーーーーーーーーーーー
@@ -231,19 +287,31 @@
             //element.classList.toggle('stamped');
             //document.getElementById('masu1').style.backgroundColor = 'red';  
         }
-    </script>
+        </script>
     <h1 class="dis"></h1>
     <h class="dis">1111上のボタン押してマークにかざしてね！<br>
-読み取ったら対応したビンゴの色が変わるよ！<br>
-ビンゴしたら…<br>
-PC室の総合受付に行ってこの画面を見せよう！<br>
-総合受付で<p>電技研オリジナル壁紙</p>がもらえるぞ！<br>
+        読み取ったら対応したビンゴの色が変わるよ！<br>
+        ビンゴしたら…<br>
+        PC室の総合受付に行ってこの画面を見せよう！<br>
+        総合受付で<p>電技研オリジナル壁紙</p>がもらえるぞ！<br>
     </h>
     <style>
-      p {
-          text-align: center;
-        color: red;
-      }
-    </style>
+        </style>
+
+
+        <input type="checkbox" id="popup">
+        <div class="trophy"><label class="popup-open" for="popup"> <img width="100" height="100" src="トロフィーのアイコン素材 3.png" alt="aa"></label>
+            <div class="dis">獲得した壁紙</div></div>
+        <div class="popup-overlay">
+            <div class="popup-window">
+                <p class="popup-text">ポップアップの中身のテキスト</p>
+                <label class="popup-close" for="popup">
+                    <img width="18" height="18" src="ダウンロード.jpg">
+                        <line x1="0" y1="0" x2="18" y2="18" stroke="white" stroke-width="3"></line>
+                        <line x1="0" y1="18" x2="18" y2="0" stroke="white" stroke-width="3"></line>
+                    </img>
+                </label>
+            </div>
+        </div>
 </body>
 </html>
