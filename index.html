@@ -182,7 +182,7 @@
             console.log(document.cookie);
             value = document.cookie.split("=");
             value = value[1]
-            for (let i = 0; i <= 8; i++) {
+            for (let i = 0; i <= 2; i++) {
                 if(value % prime_num[i] == 0) document.getElementById(`masu${i}`).style.backgroundColor = 'pink';
             }
         };
@@ -210,9 +210,9 @@
             checkBingo();
         }
         function checkBingo() {
-            if (value % prime_num[2] == 0 ||
-                value % prime_num[3] == 0 ||
-                value % prime_num[5] == 0) {
+            if (value % prime_num[0] == 0 ||
+                value % prime_num[1] == 0 ||
+                value % prime_num[2] == 0) {
                 alert("ビンゴおめでとうございます！\n総合受付にてスマホ用オリジナル壁紙をお受け取りください。");
                 //bingos[i-1].classList.add("ignite");
               return true;
