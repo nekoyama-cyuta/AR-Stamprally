@@ -146,12 +146,6 @@
     </div>
     <button onclick="resetcookies()">リセット</button>
     <div class="grid-container">
-        <!--<div class="grid-item" id="masu0">4Dシアター</div>-->
-        <!--<div class="grid-item" id="masu1">ARシューティング</div>-->
-        <!--<div class="grid-item" id="masu2">CAD講座</div>-->
-        <!--<div class="grid-item" id="masu3">Dくん大作戦</div>-->
-        <!--<div class="grid-item" id="masu4">FREE!</div>-->
-        <!--<div class="grid-item" id="masu5">LEGO製作体験</div>-->
         <div class="grid-item" id="masu6">Unity競争</div>
         <div class="grid-item" id="masu7">ドローン操縦体験</div>
         <div class="grid-item" id="masu8">ロボ技展示</div>
@@ -211,29 +205,14 @@
 
 
         //ビンゴ判定
-        const cells = document.querySelectorAll('.grid-item');
-        const winningCombinations = [
-          [0, 1, 2], // 横のライン
-          [3, 4, 5],
-          [6, 7, 8],
-          [0, 3, 6], // 縦のライン
-          [1, 4, 7],
-          [2, 5, 8],
-          [0, 4, 8], // 斜めのライン
-          [2, 4, 6]
-        ];
         
         window.onload = function(){
             checkBingo();
         }
         function checkBingo() {
-            i = 0;
-          for (const combination of winningCombinations) {
-            i++;
-            const [a, b, c] = combination;
-            if (value % prime_num[a] == 0 &&
-                value % prime_num[b] == 0 &&
-                value % prime_num[c] == 0) {
+            if (value % prime_num[2] == 0 ||
+                value % prime_num[3] == 0 ||
+                value % prime_num[5] == 0) {
                 alert("ビンゴおめでとうございます！\n総合受付にてスマホ用オリジナル壁紙をお受け取りください。");
                 //bingos[i-1].classList.add("ignite");
               return true;
