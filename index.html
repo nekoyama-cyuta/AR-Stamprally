@@ -20,17 +20,15 @@
         }
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(3, 1fr);
+            grid-template-columns: repeat(3, auto);
+            padding: 10%;
             gap: 10px;
-            width: 320px;
-            height: 100px;
-            margin: 0 auto;
+            place-items: center;
         }
         .grid-item {
             z-index: 0;
-            width: 100px;
-            height: 100px;
+            width: 20vw;
+            height: 20vw;
             border: 2px solid #ff8a05;
             display: flex;
             align-items: center;
@@ -53,8 +51,10 @@
         }
         .cambutton{
             z-index: 0;
-            width: 300px;
-            height: 300px;
+            width: 90vmin;
+            height: 90vmin;
+            max-width: 300px;
+            max-height: 300px;
             border-radius: 300px;
             border-color: #ff8a05;
             display: block;
@@ -64,7 +64,8 @@
             text-decoration: none;
             text-align: center;
             margin: 10px 0;
-            font-size: 30px;
+            font-size:min(9vw,27px);
+            transform: translate(50%, auto);
 
             transition: .2s cubic-bezier(0.45, 0, 0.55, 1);
         }
@@ -110,8 +111,7 @@
             margin:  auto;
         }
         .dis{
-            font-size: 20px;
-            transform: translate(-1%, 0%);
+            font-size: 22px;
             color: #b80060;
         }
         .ignite{
@@ -142,7 +142,7 @@
         }
         .popup-open:hover {
             background: #ffffff00;
-            color: #ff701e;
+            color: #ff711e00;
         }
 
         .popup-overlay {
@@ -170,6 +170,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        
         }
 
         .popup-text {
@@ -183,15 +184,36 @@
         .popup-close {
         cursor: pointer;
         position: absolute;
-        top: -26px;
+        top: -8%;
         right: 0;
         }
 
         .trophy{
-            width: 20%;
-            transform: translate(400%, 0%);
-
-            transition: .2s cubic-bezier(0.45, 0, 0.55, 1);
+            width: 30%;
+            margin-left: auto;
+        }
+        .grid-container-trophy {
+            display:flex;
+            justify-content: space-around;
+            text-align: center;
+            align-items: center;
+            width: 90%;
+            overflow-x: scroll;
+        }
+        .grid-item-trophy {
+            object-fit: contain;
+            z-index: 0;
+            border: 5px solid rgb(255, 138, 5);
+            align-items: center;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        li{
+            list-style: none;
+            min-width: 90%;
+        }
+        .resize-text{
+            font-size: 5vmin;
         }
 
     </style>
@@ -210,7 +232,7 @@
     </div>
     <button onclick="resetcookies()">リセット</button>
     <div class="grid-container">
-        <div class="grid-item" id="masu0">Unity競争</div>
+        <div class="grid-item" id="masu0">Unity講座</div>
         <div class="grid-item" id="masu1">ドローン操縦体験</div>
         <div class="grid-item" id="masu2">ロボ技展示</div>
     </div>
@@ -308,13 +330,17 @@
 
 
         <input type="checkbox" id="popup">
-        <div class="trophy"><label class="popup-open" for="popup"> <img width="100" height="100" src="トロフィーのアイコン素材 3.png" alt="aa"></label>
-            <div class="dis">獲得した壁紙</div></div>
+        <div class="trophy"><label class="popup-open" for="popup"> <img width="100vmin" height="100vmin" src="トロフィーのアイコン素材 3.png" alt="aa"></label>
+            <li><p class="dis">獲得した壁紙</p></li></div>
         <div class="popup-overlay">
             <div class="popup-window">
-                <p class="popup-text">ポップアップの中身のテキスト</p>
+                <div class="grid-container-trophy">
+                    <li><img width="80%" class="grid-item-trophy" src="kabegami1.jpg"><p class="resize-text">Unity講座</p></li>
+                    <li><img width="80%" class="grid-item-trophy" src="kabegami2.jpg"><p class="resize-text">ドローン操縦体験</p></li>
+                    <li><img width="80%" class="grid-item-trophy" src="kabegami3.jpg"><p class="resize-text">ロボ技展示</p></li>
+                </div>
                 <label class="popup-close" for="popup">
-                    <img width="18" height="18" src="ダウンロード.jpg">
+                    <img width="40vmin" height="40vmin" src="禁止、閉じるのアイコン素材 3.svg">
                         <line x1="0" y1="0" x2="18" y2="18" stroke="white" stroke-width="3"></line>
                         <line x1="0" y1="18" x2="18" y2="0" stroke="white" stroke-width="3"></line>
                     </img>
