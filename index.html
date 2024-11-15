@@ -138,6 +138,11 @@
         cursor: pointer; /* マウスオーバーでカーソルの形状を変えることで、クリックできる要素だとわかりやすいように */
         filter: invert(70%) sepia(80%) saturate(2800%) hue-rotate(0deg) brightness(150%);
         width: 100%;
+        transition: .2s cubic-bezier(0.45, 0, 0.55, 1);
+        }
+        .popup-open:hover {
+            background: #ffffff00;
+            color: #ff701e;
         }
 
         .popup-overlay {
@@ -185,6 +190,8 @@
         .trophy{
             width: 20%;
             transform: translate(400%, 0%);
+
+            transition: .2s cubic-bezier(0.45, 0, 0.55, 1);
         }
 
     </style>
