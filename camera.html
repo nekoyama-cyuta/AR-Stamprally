@@ -76,7 +76,7 @@
                     document.cookie = `score=11`;
                 }
                 score = parseInt(score, 10);
-                document.cookie = `score=${score * prime_num[marker.id]}`;
+                document.cookie = `score=`+(score * prime_num[marker.id]);
                 
                 console.log(document.cookie);
             });
