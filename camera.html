@@ -96,7 +96,8 @@
         //マーカー認識、クッキー保存
         markers.forEach(marker => {
             marker.addEventListener('markerFound', () => {
-                message.innerText = `${marker.id} が認識されました！`;
+                //message.innerText = `${marker.id} が認識されました！`;
+                message.innerText = `スタンプが認識されました！前のページにお戻りください。`;
                 message.style.display = 'block';
 
                 score = document.cookie.split("=");
