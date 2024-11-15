@@ -113,6 +113,8 @@
         .dis{
             font-size: 22px;
             color: #b80060;
+            text-align: center;
+            transform: translate(0, -30px);
         }
         .ignite{
             animation-delay:1s;
@@ -136,9 +138,9 @@
 
         .popup-open {
         cursor: pointer; /* マウスオーバーでカーソルの形状を変えることで、クリックできる要素だとわかりやすいように */
-        filter: invert(70%) sepia(80%) saturate(2800%) hue-rotate(0deg) brightness(150%);
         width: 100%;
         transition: .2s cubic-bezier(0.45, 0, 0.55, 1);
+        text-align: center;
         }
         .popup-open:hover {
             background: #ffffff00;
@@ -333,8 +335,7 @@
 
 
         <input type="checkbox" id="popup">
-        <div class="trophy"><label class="popup-open" for="popup"> <img width="100vmin" height="100vmin" src="トロフィーのアイコン素材 3.png" alt="aa"></label>
-            <li><p class="dis">獲得した壁紙</p></li></div>
+        <div class="trophy"><label class="popup-open" for="popup"> <li><img width="100vmin" height="100vmin" src="トロフィーのアイコン素材 3.svg" alt="aa"><p class="dis"><nobr>獲得した壁紙</nobr></p></li></label></div>
         <div class="popup-overlay">
             <div class="popup-window">
                 <div class="grid-container-trophy">
