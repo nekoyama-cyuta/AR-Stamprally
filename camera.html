@@ -74,10 +74,10 @@
                 if (!score) {
                     console.log("score is undefined");
                     document.cookie = `score=11`;
-                } else {
-                    score = parseInt(score, 10);
-                    document.cookie = `score=${score * prime_num[marker.id]}`;
                 }
+                score = parseInt(score, 10);
+                document.cookie = `score=${score * prime_num[marker.id]}`;
+                
                 console.log(document.cookie);
             });
 
