@@ -81,7 +81,9 @@
                 message.style.display = 'block';
 
                 score = document.cookie.split("=");
+                console.log(score);
                 if(isNaN(score)) score = 11;
+                console.log(score);
                 document.cookie = `score=${score[1]*prime_num[marker.id]}`;
             });
 
