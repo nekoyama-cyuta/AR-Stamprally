@@ -81,16 +81,14 @@
                 message.style.display = 'block';
 
                 score = document.cookie.split("=");
-                _score = score[1];
-                console.log(_score);
+                console.log(score[1]);
                 if(isNaN(score))
                 {
-                    _score = 11;
                     console.log("score is NAN");
                     document.cookie = `score=11`;
                 }
-                console.log(_score);
-                document.cookie = `score=${_score*prime_num[marker.id]}`;
+                console.log(score[1]);
+                document.cookie = `score=${score[1]*prime_num[marker.id]}`;
             });
 
             marker.addEventListener('markerLost', () => {
