@@ -83,7 +83,11 @@
                 score = document.cookie.split("=");
                 _score = score[1];
                 console.log(_score);
-                if(isNaN(score)) _score = 11;
+                if(isNaN(score))
+                {
+                    _score = 11;
+                    console.log("score is NAN");
+                }
                 console.log(_score);
                 document.cookie = `score=${_score*prime_num[marker.id]}`;
             });
