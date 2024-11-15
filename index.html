@@ -161,8 +161,9 @@
         }
 
         .popup-window {
-        width: 90vw;
-        max-width: 560px;
+        width: 90vmin;
+        height: 90vmin;
+        max-width: 700px;
         padding: 20px;
         background-color: #282042;
         border-radius: 6px;
@@ -184,8 +185,8 @@
         .popup-close {
         cursor: pointer;
         position: absolute;
-        top: -8%;
-        right: 0;
+        top: 2%;
+        right: 2%;
         }
 
         .trophy{
@@ -207,6 +208,7 @@
             align-items: center;
             cursor: pointer;
             border-radius: 10px;
+            width: 30vmin;
         }
         li{
             list-style: none;
@@ -214,6 +216,7 @@
         }
         .resize-text{
             font-size: 5vmin;
+            color:rgb(255, 138, 5);
         }
 
     </style>
@@ -335,9 +338,9 @@
         <div class="popup-overlay">
             <div class="popup-window">
                 <div class="grid-container-trophy">
-                    <li><img width="80%" class="grid-item-trophy" src="kabegami1.jpg"><p class="resize-text">Unity講座</p></li>
-                    <li><img width="80%" class="grid-item-trophy" src="kabegami2.jpg"><p class="resize-text">ドローン操縦体験</p></li>
-                    <li><img width="80%" class="grid-item-trophy" src="kabegami3.jpg"><p class="resize-text">ロボ技展示</p></li>
+                    <li><img class="grid-item-trophy" src="kabegami1.jpg"><p class="resize-text">Unity講座</p></li>
+                    <li><img class="grid-item-trophy" src="kabegami2.jpg"><p class="resize-text">ドローン操縦体験</p></li>
+                    <li><img class="grid-item-trophy" src="kabegami3.jpg"><p class="resize-text">ロボ技展示</p></li>
                 </div>
                 <label class="popup-close" for="popup">
                     <img width="40vmin" height="40vmin" src="禁止、閉じるのアイコン素材 3.svg">
