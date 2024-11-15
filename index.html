@@ -233,7 +233,7 @@
     </section>-->
     
     <div class="title">
-        <h1>ARスタンプラリー11</h1>
+        <h1>ARスタンプラリー</h1>
     </div>
     <button onclick="resetcookies()">リセット</button>
     <div class="grid-container">
@@ -301,10 +301,20 @@
             checkBingo();
         }
         function checkBingo() {
+            if (value % prime_num[0] == 0){
+                document.getElementById("pic1").src = "kabegami1.jpg";
+            }
+            if (value % prime_num[1] == 0){
+                document.getElementById("pic2").src = "kabegami2.jpg";
+            }
+            if (value % prime_num[2] == 0){
+                document.getElementById("pic3").src = "kabegami3.jpg";
+            }
+
             if (value % prime_num[0] == 0 ||
             value % prime_num[1] == 0 ||
             value % prime_num[2] == 0) {
-                alert("体験していただきありがとうございます！\n「獲得した壁紙」よりスマホ用オリジナル壁紙をお受け取りください！");
+                alert("ビンゴおめでとうございます！\n総合受付にてスマホ用オリジナル壁紙をお受け取りください。");
                 //bingos[i-1].classList.add("ignite");
                 return true;
             }
@@ -339,9 +349,9 @@
         <div class="popup-overlay">
             <div class="popup-window">
                 <div class="grid-container-trophy">
-                    <li><img class="grid-item-trophy" src="kabegami1.jpg"><p class="resize-text">Unity講座</p></li>
-                    <li><img class="grid-item-trophy" src="kabegami2.jpg"><p class="resize-text">ドローン操縦体験</p></li>
-                    <li><img class="grid-item-trophy" src="kabegami3.jpg"><p class="resize-text">ロボ技展示</p></li>
+                    <li><img id="pic1" class="grid-item-trophy" src="はてなマークのアイコン素材 12.svg"><p class="resize-text">Unity講座</p></li>
+                    <li><img id="pic2" class="grid-item-trophy" src="はてなマークのアイコン素材 12.svg"><p class="resize-text">ドローン操縦体験</p></li>
+                    <li><img id="pic3" class="grid-item-trophy" src="はてなマークのアイコン素材 12.svg"><p class="resize-text">ロボ技展示</p></li>
                 </div>
                 <label class="popup-close" for="popup">
                     <img width="40vmin" height="40vmin" src="禁止、閉じるのアイコン素材 3.svg">
