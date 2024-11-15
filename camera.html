@@ -71,14 +71,15 @@
                 let score = getCookie('score');
                 console.log(score);
                 
-                if (!score) {
-                    console.log("score is undefined");
-                    document.cookie = `score=${11 * prime_num[marker.id]}`;
-                } else {
-                    score = parseInt(score, 10);
-                    document.cookie = `score=${score * prime_num[marker.id]}`;
-                }
-                
+                if (!score) 
+                { 
+                    console.log("score is undefined"); 
+                    document.cookie = `score=11`;
+                } else { 
+                    score = parseInt(score, 10); 
+                    let newScore = score * prime_num[marker.id]; 
+                    document.cookie = `score=${newScore}`; 
+                } 
                 console.log(document.cookie);
             });
 
