@@ -24,13 +24,15 @@
         <!-- 単色背景の設定 -->
         <!--<a-sky color="#FF0000"></a-sky> ここで色を指定します。例: 赤色 -->
 
+        < a-light  color = "white" position = "-1 1 0" > </ a-light >
+
         <!-- マーカー0 -->
         <a-marker type='pattern' url='pattern-unity.patt' id="0">
             <a-entity
               gltf-model="url(Unity競争/AR-stamprally-Unity競争.glb)"
               position="0 0 0"
               rotation="180 0 0"
-              scale="0.1 0.1 0.1">
+              scale="0.3 0.3 0.3">
             </a-entity>
         </a-marker>
         
@@ -40,7 +42,7 @@
               gltf-model="url(ドローン操縦体験/AR-stamprally-ドローン操縦体験.glb)"
               position="0 0 0"
               rotation="180 0 0"
-              scale="0.1 0.1 0.1">
+              scale="0.3 0.3 0.3">
             </a-entity>
         </a-marker>
         
@@ -81,6 +83,8 @@
                 let newScore = score * prime_num[marker.id];
                 document.cookie = `score=${newScore}`;
                 console.log(document.cookie);
+
+                document.cookie = `reload=${newScore}`;
             });
 
             marker.addEventListener('markerLost', () => {
